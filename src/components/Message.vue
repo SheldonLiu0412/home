@@ -4,9 +4,9 @@
     <!-- Logo -->
     <div class="logo">
       <img class="logo-img" :src="siteLogo" alt="logo" />
-      <div :class="{ name: true, 'text-hidden': true, long: siteUrl[0].length >= 6 }">
+      <div :class="{ name: true, 'text-hidden': true }">
         <span class="bg">{{ siteUrl[0] }}</span>
-        <span class="sm">.{{ siteUrl[1] }}</span>
+        <span class="sm" v-if="siteUrl[1]">.{{ siteUrl[1] }}</span>
       </div>
     </div>
     <!-- 简介 -->
@@ -40,7 +40,7 @@ const store = mainStore();
 const siteLogo = import.meta.env.VITE_SITE_MAIN_LOGO;
 // 站点链接
 const siteUrl = computed(() => {
-  return ["yunxiu", ""];  // 直接返回固定值
+  return ["yunxiu", null];  // 直接返回固定值
 });
 
 // 简介区域文字
